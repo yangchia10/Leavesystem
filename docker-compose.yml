@@ -1,0 +1,56 @@
+version: "3.8"
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "!QAZ2wsx#EDC"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      leavesystem_vue_default:
+        ipv4_address: 192.168.48.2
+
+  backend:
+    image: yang_backend
+    user: root
+    environment:
+      DATABASE_HOST: sqlserver
+      DATABASE_USER: SA
+      DATABASE_PASSWORD: "!QAZ2wsx#EDC"
+      DATABASE_NAME: leaveSystem
+    ports:
+      # - "5000:5163" # 确保端口映射匹配您的实际需求
+      - "5163:8080" # 将后端服务的8080端口映射到主机的5000端口 # 修改這裡以匹配您的後端應用實際監聽的端口
+    volumes:
+      - backend_data_protection_keys:/root/.aspnet/DataProtection-Keys # 为数据保护密钥添加卷
+    depends_on:
+      - sqlserver
+    networks:
+      leavesystem_vue_default:
+        ipv4_address: 192.168.48.3
+
+  frontend:
+    image: yang_frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+    networks:
+      leavesystem_vue_default:
+        ipv4_address: 192.168.48.4
+
+volumes:
+  sqlserver_data:
+  backend_data_protection_keys: # 定义一个新的卷用于持久化数据保护密钥
+
+networks:
+  leavesystem_vue_default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.48.0/24

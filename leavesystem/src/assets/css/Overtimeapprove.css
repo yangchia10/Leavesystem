@@ -1,0 +1,81 @@
+.role-table {
+  width: 100%;
+  max-width: 1500px;
+  margin: 40px auto;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  font-size: 0.9em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.role-table thead tr {
+  background-color: #007bff;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.role-table th,
+.role-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.role-table tbody tr {
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+.role-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.btn {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-confirm {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #218838;
+}
+
+.btn-reject {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-reject:hover {
+  background-color: #c82333;
+}
+
+
+/* 限制表格单元格内文本的显示长度 */
+.table-cell-ellipsis {
+  max-width: 150px; /* 您可以根据需要调整这个宽度 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .role-table {
+    width: 90%;
+    margin: 20px auto;
+  }
+}

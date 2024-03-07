@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\leaveSystem_vue.props" />
+</Project>
