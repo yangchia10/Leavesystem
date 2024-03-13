@@ -63,30 +63,4 @@ docker-compose up -d
 leaveSystem.bak
 ```
 
-graph TD
-    A[使用者登入.vue] -->|登入成功| B[首頁.vue]
-    A[使用者登入.vue] -.->|註冊| C[使用者註冊.vue]
-    B --> D[請假申請表單.vue]
-    B --> E[加班申請.vue]
-    B --> F[更改帳戶.vue]
-    B --> G[查看紀錄.vue]
-    B --> H[角色權限.vue]
-    D --> I[請假審批.vue]
-    E --> J[加班審批.vue]
-    G --> K[查詢請假狀態.vue]
-    G --> L[查詢加班補休.vue]
-    H --> M[角色權限.vue]
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#f66,stroke-width:2px
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bbf,stroke:#333,stroke-width:2px
-    style F fill:#bbf,stroke:#333,stroke-width:2px
-    style G fill:#bbf,stroke:#333,stroke-width:2px
-    style H fill:#bbf,stroke:#333,stroke-width:2px
-    style I fill:#bbf,stroke:#333,stroke-width:2px
-    style J fill:#bbf,stroke:#333,stroke-width:2px
-    style K fill:#bbf,stroke:#333,stroke-width:2px
-    style L fill:#bbf,stroke:#333,stroke-width:2px
-    style M fill:#bbf,stroke:#333,stroke-width:2px
